@@ -12,3 +12,30 @@ These can be found in the `formats` folders, and are simple Handlebars files rep
  * Want to add one? [Send us a pull request](https://github.com/mgmco/sepa-xml/compare/)!
 
 ## Usage
+
+```javascript
+var SepaXML = require('sepa-xml');
+var XMLFile = new SepaXML(); // takes a single argument which is the format, default is 'pain.001.001.03'
+
+// This sets the header data in the file
+XMLFile.setHeaderInfo({
+  id: '123/1',
+  method: 'TRF',
+  batchBooking: false,
+  senderName: 'Acme Co.',
+  senderIBAN: 'NL39 RABO 0300 0652 64',
+  bic: 'RABONL2U' // optional
+});
+
+// Add one of these for every transaction
+XMLFile.addTransaction({
+  id: 'endToEndID',
+  amount: 10.00,
+  name: 'My Name',
+  iban: 'NL39 RABO 0300 0652 64'
+});
+
+XMLFile.compile(); // your XML data gets output here
+```
+
+_NOTE:_ in case of an error, `compile()` will output boolean `false` and console out the errors.
