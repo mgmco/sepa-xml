@@ -1,0 +1,33 @@
+{
+  "name": "sepa-xml",
+  "version": "0.0.0",
+  "description": "Generate a SEPA XML file",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mgmco/sepa-xml-pain.001.git"
+  },
+  "keywords": [
+    "sepa",
+    "swift",
+    "iban",
+    "payment",
+    "xml"
+  ],
+  "author": "Mike Timofiiv (http://fiiv.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mgmco/sepa-xml-pain.001/issues"
+  },
+  "homepage": "https://github.com/mgmco/sepa-xml-pain.001#readme",
+  "dependencies": {
+    "handlebars": "^3.0.3"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  }
+}
