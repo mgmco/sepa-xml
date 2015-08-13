@@ -1,14 +1,14 @@
 {
   "name": "sepa-xml",
   "version": "0.0.2",
-  "description": "Generate a SEPA XML file",
+  "description": "A simple XML generator for SEPA transactions.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/mgmco/sepa-xml-pain.001.git"
+    "url": "git+ssh://git@github.com/mgmco/sepa-xml.git"
   },
   "keywords": [
     "sepa",
