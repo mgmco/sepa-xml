@@ -1,6 +1,6 @@
 {
   "name": "sepa-xml",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Generate a SEPA XML file",
   "main": "index.js",
   "scripts": {
@@ -20,9 +20,9 @@
   "author": "Mike Timofiiv (http://fiiv.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mgmco/sepa-xml-pain.001/issues"
+    "url": "https://github.com/mgmco/sepa-xml/issues"
   },
-  "homepage": "https://github.com/mgmco/sepa-xml-pain.001#readme",
+  "homepage": "https://github.com/mgmco/sepa-xml#readme",
   "dependencies": {
     "handlebars": "^3.0.3"
   },

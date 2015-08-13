@@ -3,7 +3,7 @@
   <CstmrCdtTrfInitn>
     <GrpHdr>
       <MsgId>{{_header.messageId}}</MsgId>
-      <CreDtTm>{{_header.creditDateTime}}</CreDtTm>
+      <CreDtTm>{{timestamp}}</CreDtTm>
       <NbOfTxs>{{_header.transactionCount}}</NbOfTxs>
       <CtrlSum>{{_header.transactionControlSum}}</CtrlSum>
       <InitgPty>
@@ -21,7 +21,7 @@
           <Cd>SEPA</Cd>
         </SvcLvl>
       </PmtTpInf>
-      <ReqdExctnDt>2015-07-29</ReqdExctnDt>
+      <ReqdExctnDt>{{formatDate _payments.info.when}}</ReqdExctnDt>
       <Dbtr>
         <Nm>{{_payments.info.senderName}}</Nm>
       </Dbtr>
