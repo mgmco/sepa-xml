@@ -39,3 +39,7 @@ XMLFile.compile(); // your XML data gets output here
 ```
 
 _NOTE:_ in case of an error, `compile()` will output boolean `false` and console out the errors.
+
+## Contributing
+
+Would be nice if someone wrote more templates for some of the other formats used for SEPA.
