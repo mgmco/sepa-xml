@@ -44,3 +44,4 @@ _NOTE:_ in case of an error, `compile()` will output boolean `false` and console
 
  * Would be nice if someone wrote more templates for some of the other formats used for SEPA.
  * The BICS lookup list is probably not complete - it would be great if someone could add that data into [the map](https://github.com/mgmco/sepa-xml/blob/master/bics/list.js)
+ * Anything else you can think of
