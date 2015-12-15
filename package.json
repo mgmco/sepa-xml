@@ -1,10 +1,11 @@
 {
   "name": "sepa-xml",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple XML generator for SEPA transactions.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "package:update": "npm outdated --depth=0 | grep -v Package | awk '{print $1}' | xargs -I% npm install %@latest --save"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,7 @@
   },
   "homepage": "https://github.com/mgmco/sepa-xml#readme",
   "dependencies": {
-    "handlebars": "^3.0.3"
+    "handlebars": "^4.0.5"
   },
   "devDependencies": {
     "chai": "^3.2.0",
