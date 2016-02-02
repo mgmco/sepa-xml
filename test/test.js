@@ -11,9 +11,30 @@ describe('Module loads a new function', function() {
 
 describe('Works with the `pain.001.001.03` format', function() {
   var sepaxml = new SepaXML('pain.001.001.03');
+  sepaxml.setHeaderInfo({
+    messageId: 'ABC123',
+    initiator: 'SepaXML'
+  });
 
-  it('Loads the template for the format', function() {
-    expect(sepaxml.compile()).to.be.a('string');
+  sepaxml.setPaymentInfo({
+    id: 'XYZ987',
+    method: 'TRF'
+  });
+
+  sepaxml.addTransaction({
+    id: 'TRANSAC1',
+    iban: 'NL21ABNA0531621583', // fake IBAN from https://www.generateiban.com/test-iban/ thanks
+    name: 'generateiban',
+    amount: 42
+  });
+
+  it('Loads the template for the format', function(done) {
+    sepaxml.compile(function (err, out) {
+      expect(err).to.be.null;
+      expect(out).to.be.a('string');
+
+      done();
+    });
   });
 
 });
