@@ -4,7 +4,7 @@
   "description": "A simple XML generator for SEPA transactions.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "istanbul cover _mocha",
     "package:update": "npm outdated --depth=0 | grep -v Package | awk '{print $1}' | xargs -I% npm install %@latest --save"
   },
   "repository": {
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "chai": "^3.2.0",
+    "istanbul": "^0.4.2",
     "mocha": "^2.2.5"
   }
 }
