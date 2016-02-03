@@ -9,6 +9,7 @@ It does, however, run the final result through a validator and will throw an err
 These can be found in the `formats` folders, and are simple Handlebars files representing the XML schema.
 
  * `pain.001.001.03`
+ * `pain.001.001.002` (thanks [@PierrickP](https://github.com/PierrickP))
  * Want to add one? [Send us a pull request](https://github.com/mgmco/sepa-xml/compare/)!
 
 ## Usage
