@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.001.001.02 pain.001.001.02.xsd">
+  <pain.001.001.02>
+    <GrpHdr>
+      <MsgId>{{_header.messageId}}</MsgId>
+      <CreDtTm>{{timestamp}}</CreDtTm>
+      <NbOfTxs>{{_header.transactionCount}}</NbOfTxs>
+      <CtrlSum>{{_header.transactionControlSum}}</CtrlSum>
+      <Grpg>MIXD</Grpg>
+      <InitgPty>
+        <Nm>{{_header.initiator}}</Nm>
+      </InitgPty>
+    </GrpHdr>
+
+    <PmtInf>
+      <PmtInfId>{{_payments.info.id}}</PmtInfId>
+      <PmtMtd>{{_payments.info.method}}</PmtMtd>
+      <PmtTpInf>
+        <SvcLvl>
+          <Cd>SEPA</Cd>
+        </SvcLvl>
+      </PmtTpInf>
+      <ReqdExctnDt>{{formatDate _payments.info.when}}</ReqdExctnDt>
+      <Dbtr>
+        <Nm>{{_payments.info.senderName}}</Nm>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <IBAN>{{_payments.info.senderIBAN}}</IBAN>
+        </Id>
+        <Ccy>EUR</Ccy>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <BIC>{{_payments.info.bic}}</BIC>
+        </FinInstnId>
+      </DbtrAgt>
+      {{#each _payments.transactions}}
+        <CdtTrfTxInf>
+          <PmtId>
+            <EndToEndId>{{endToEndId}}</EndToEndId>
+          </PmtId>
+          <Amt>
+            <InstdAmt Ccy="EUR">{{amount}}</InstdAmt>
+          </Amt>
+          <CdtrAgt>
+            <FinInstnId>
+              <BIC>{{bic}}</BIC>
+            </FinInstnId>
+          </CdtrAgt>
+          <Cdtr>
+            <Nm>{{recipientName}}</Nm>
+          </Cdtr>
+          <CdtrAcct>
+            <Id>
+              <IBAN>{{recipientIBAN}}</IBAN>
+            </Id>
+          </CdtrAcct>
+        </CdtTrfTxInf>
+      {{/each}}
+    </PmtInf>
+  </pain.001.001.02>
+</Document>
