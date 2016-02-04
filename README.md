@@ -9,7 +9,7 @@ It does, however, run the final result through a validator and will throw an err
 These can be found in the `formats` folders, and are simple Handlebars files representing the XML schema.
 
  * `pain.001.001.03`
- * `pain.001.001.002` (thanks [@PierrickP](https://github.com/PierrickP))
+ * `pain.001.001.02` (thanks [@PierrickP](https://github.com/PierrickP))
  * Want to add one? [Send us a pull request](https://github.com/mgmco/sepa-xml/compare/)!
 
 ## Usage
@@ -20,12 +20,17 @@ var XMLFile = new SepaXML(); // takes a single argument which is the format, def
 
 // This sets the header data in the file
 XMLFile.setHeaderInfo({
+  messageId: '123/1',
+  initiator: 'XML Corp.'
+});
+
+XMLFile.setPaymentInfo({
   id: '123/1',
   method: 'TRF',
-  batchBooking: false,
   senderName: 'Acme Co.',
   senderIBAN: 'NL39 RABO 0300 0652 64',
-  bic: 'RABONL2U' // optional
+  batchBooking: false, // optional (default: false)
+  bic: 'RABONL2U'
 });
 
 // Add one of these for every transaction
@@ -33,13 +38,14 @@ XMLFile.addTransaction({
   id: 'endToEndID',
   amount: 10.00,
   name: 'My Name',
-  iban: 'NL39 RABO 0300 0652 64'
+  iban: 'NL39 RABO 0300 0652 64',
+  bic: 'RABONL2U'  // optional can be auto-found it
 });
 
-XMLFile.compile(); // your XML data gets output here
+XMLFile.compile(function (err, out) {
+  // your XML data gets output here
+});
 ```
-
-_NOTE:_ in case of an error, `compile()` will output boolean `false` and console out the errors.
 
 ## Contributing
 
