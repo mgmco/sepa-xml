@@ -13,31 +13,31 @@
 
     {{#each _payments}}
       <PmtInf>
-        <PmtInfId>{{info.id}}</PmtInfId>
-        <PmtMtd>{{info.method}}</PmtMtd>
-        <BtchBookg>{{info.batchBooking}}</BtchBookg>
-        <NbOfTxs>{{info.transactionCount}}</NbOfTxs>
-        <CtrlSum>{{info.transactionControlSum}}</CtrlSum>
+        <PmtInfId>{{_info.id}}</PmtInfId>
+        <PmtMtd>{{_info.method}}</PmtMtd>
+        <BtchBookg>{{_info.batchBooking}}</BtchBookg>
+        <NbOfTxs>{{_info.transactionCount}}</NbOfTxs>
+        <CtrlSum>{{_info.transactionControlSum}}</CtrlSum>
         <PmtTpInf>
           <SvcLvl>
             <Cd>SEPA</Cd>
           </SvcLvl>
         </PmtTpInf>
-        <ReqdExctnDt>{{formatDate info.when}}</ReqdExctnDt>
+        <ReqdExctnDt>{{formatDate _info.when}}</ReqdExctnDt>
         <Dbtr>
-          <Nm>{{info.senderName}}</Nm>
+          <Nm>{{_info.senderName}}</Nm>
         </Dbtr>
         <DbtrAcct>
           <Id>
-            <IBAN>{{info.senderIBAN}}</IBAN>
+            <IBAN>{{_info.senderIBAN}}</IBAN>
           </Id>
         </DbtrAcct>
         <DbtrAgt>
           <FinInstnId>
-            <BIC>{{info.bic}}</BIC>
+            <BIC>{{_info.bic}}</BIC>
           </FinInstnId>
         </DbtrAgt>
-        {{#each transactions}}
+        {{#each _transactions}}
           <CdtTrfTxInf>
             <PmtId>
               <EndToEndId>{{endToEndId}}</EndToEndId>
