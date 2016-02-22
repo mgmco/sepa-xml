@@ -1,6 +1,6 @@
 {
   "name": "sepa-xml",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "A simple XML generator for SEPA transactions.",
   "main": "index.js",
   "scripts": {
