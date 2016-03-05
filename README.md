@@ -16,33 +16,33 @@ These can be found in the `formats` folders, and are simple Handlebars files rep
 
 ```javascript
 var SepaXML = require('sepa-xml');
-var XMLFile = new SepaXML(); // takes a single argument which is the format, default is 'pain.001.001.03'
+var credit = SepaXML.createCredit(); // takes a single argument which is the version, default is 'pain.001.001.03'
 
 // This sets the header data in the file
-XMLFile.setHeaderInfo({
-  messageId: '123/1',
-  initiator: 'XML Corp.'
-});
-
-XMLFile.setPaymentInfo({
+credit.setHeaderInfo({
   id: '123/1',
   method: 'TRF',
-  senderName: 'Acme Co.',
-  senderIBAN: 'NL39 RABO 0300 0652 64',
-  batchBooking: false, // optional (default: false)
-  bic: 'RABONL2U'
+  batchBooking: false
 });
 
-// Add one of these for every transaction
-XMLFile.addTransaction({
+// Create payment batch
+var payment = new credit.createPayment({
+  id: 'XYZ987',
+  method: 'TRF'
+});
+
+// Add transaction
+payment.addTransaction({
   id: 'endToEndID',
-  amount: 10.00,
-  name: 'My Name',
-  iban: 'NL39 RABO 0300 0652 64',
-  bic: 'RABONL2U'  // optional can be auto-found it
+  iban: 'NL21ABNA0531621583',
+  name: 'generateiban',
+  amount: 42
 });
 
-XMLFile.compile(function (err, out) {
+// add payment to credit
+credit.addPayment(payment);
+
+credit.compile(function (err, out) {
   // your XML data gets output here
 });
 ```
