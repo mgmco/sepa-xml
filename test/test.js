@@ -53,8 +53,8 @@ describe('Works with the `pain.001.001.03` format', function() {
     expect(sepaxml._header.transactionCount).to.be.equal(1);
     expect(sepaxml._header.transactionControlSum).to.be.equal(42);
 
-    expect(sepaxml._payments.transactionCount).to.be.equal(1);
-    expect(sepaxml._payments.transactionControlSum).to.be.equal(42);
+    expect(sepaxml._payments.info.transactionCount).to.be.equal(1);
+    expect(sepaxml._payments.info.transactionControlSum).to.be.equal(42);
   });
 
   describe('Validations', function () {
