@@ -49,13 +49,16 @@
             </FinInstnId>
           </CdtrAgt>
           <Cdtr>
-            <Nm>{{recipientName}}</Nm>
+            <Nm>{{senderName}}</Nm>
           </Cdtr>
           <CdtrAcct>
             <Id>
               <IBAN>{{recipientIBAN}}</IBAN>
             </Id>
           </CdtrAcct>
+          <RmtInf>
+            <Ustrd>{{paymentDescription}}</Ustrd>
+          </RmtInf>
         </CdtTrfTxInf>
       {{/each}}
     </PmtInf>

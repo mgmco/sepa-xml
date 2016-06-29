@@ -39,7 +39,8 @@ XMLFile.addTransaction({
   amount: 10.00,
   name: 'My Name',
   iban: 'NL39 RABO 0300 0652 64',
-  bic: 'RABONL2U'  // optional can be auto-found it
+  bic: 'RABONL2U',  // optional can be auto-found it
+  description: 'My great payment'
 });
 
 XMLFile.compile(function (err, out) {
