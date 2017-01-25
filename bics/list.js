@@ -24,6 +24,7 @@ module.exports = {
   BOFA: 'BOFANLNX',
   BOFS: 'BOFSNL21',
   BOTK: 'BOTKNL2X',
+  BUNQ: 'BUNQNL2A',
   CHAS: 'CHASNL2X',
   CITC: 'CITCNL2A',
   CITI: 'CITINL2X',
