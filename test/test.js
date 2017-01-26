@@ -33,7 +33,14 @@ describe('Works with the `pain.001.001.03` format', function() {
     id: 'TRANSAC1',
     iban: 'NL21ABNA0531621583', // fake IBAN from https://www.generateiban.com/test-iban/ thanks
     name: 'generateiban',
-    amount: 42
+    amount: .1
+  });
+  
+  sepaxml.addTransaction({
+    id: 'TRANSAC1',
+    iban: 'NL21ABNA0531621583', // fake IBAN from https://www.generateiban.com/test-iban/ thanks
+    name: 'generateiban',
+    amount: 40.2
   });
 
   it('Loads the template for the format', function(done) {
@@ -50,11 +57,11 @@ describe('Works with the `pain.001.001.03` format', function() {
   });
 
   it('should made transaction Control Sum', function () {
-    expect(sepaxml._header.transactionCount).to.be.equal(1);
-    expect(sepaxml._header.transactionControlSum).to.be.equal(42);
+    expect(sepaxml._header.transactionCount).to.be.equal(2);
+    expect(sepaxml._header.transactionControlSum).to.be.equal('40.30');
 
-    expect(sepaxml._payments.info.transactionCount).to.be.equal(1);
-    expect(sepaxml._payments.info.transactionControlSum).to.be.equal(42);
+    expect(sepaxml._payments.info.transactionCount).to.be.equal(2);
+    expect(sepaxml._payments.info.transactionControlSum).to.be.equal('40.30');
   });
 
   describe('Validations', function () {
@@ -77,7 +84,7 @@ describe('Works with the `pain.001.001.03` format', function() {
 
     it('should validate new transaction', function () {
       expect(sepaxml.addTransaction()).to.be.false;
-      expect(sepaxml._payments.transactions.length).to.be.equal(1);
+      expect(sepaxml._payments.transactions.length).to.be.equal(2);
     });
 
     it('should use a bad format', function (done) {
