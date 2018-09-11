@@ -8,6 +8,15 @@
       <CtrlSum>{{_header.transactionControlSum}}</CtrlSum>
       <InitgPty>
         <Nm>{{_header.initiator}}</Nm>
+        {{#if _header.initiatorId}}
+          <Id>
+            <PrvtId>
+              <Othr>
+                <Id>{{_header.initiatorId}}</Id>
+              </Othr>
+            </PrvtId>
+          </Id>
+        {{/if}}
       </InitgPty>
     </GrpHdr>
     <PmtInf>
@@ -43,11 +52,13 @@
           <Amt>
             <InstdAmt Ccy="EUR">{{amount}}</InstdAmt>
           </Amt>
-          <CdtrAgt>
-            <FinInstnId>
-              <BIC>{{bic}}</BIC>
-            </FinInstnId>
-          </CdtrAgt>
+          {{#if bic}}
+            <CdtrAgt>
+              <FinInstnId>
+                <BIC>{{bic}}</BIC>
+              </FinInstnId>
+            </CdtrAgt>
+          {{/if}}
           <Cdtr>
             <Nm>{{senderName}}</Nm>
           </Cdtr>
