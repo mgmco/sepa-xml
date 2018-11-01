@@ -39,11 +39,13 @@
           <IBAN>{{_payments.info.senderIBAN}}</IBAN>
         </Id>
       </DbtrAcct>
-      <DbtrAgt>
-        <FinInstnId>
-          <BIC>{{_payments.info.bic}}</BIC>
-        </FinInstnId>
-      </DbtrAgt>
+      {{#if _payments.info.bic}}
+        <DbtrAgt>
+          <FinInstnId>
+            <BIC>{{_payments.info.bic}}</BIC>
+          </FinInstnId>
+        </DbtrAgt>
+      {{/if}}
       {{#each _payments.transactions}}
         <CdtTrfTxInf>
           <PmtId>

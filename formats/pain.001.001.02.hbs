@@ -30,11 +30,13 @@
         </Id>
         <Ccy>EUR</Ccy>
       </DbtrAcct>
-      <DbtrAgt>
-        <FinInstnId>
-          <BIC>{{_payments.info.bic}}</BIC>
-        </FinInstnId>
-      </DbtrAgt>
+      {{#if _payments.info.bic}}
+        <DbtrAgt>
+          <FinInstnId>
+            <BIC>{{_payments.info.bic}}</BIC>
+          </FinInstnId>
+        </DbtrAgt>
+      {{/if}}
       {{#each _payments.transactions}}
         <CdtTrfTxInf>
           <PmtId>
@@ -43,11 +45,13 @@
           <Amt>
             <InstdAmt Ccy="EUR">{{amount}}</InstdAmt>
           </Amt>
-          <CdtrAgt>
-            <FinInstnId>
-              <BIC>{{bic}}</BIC>
-            </FinInstnId>
-          </CdtrAgt>
+          {{#if bic}}
+            <CdtrAgt>
+              <FinInstnId>
+                <BIC>{{bic}}</BIC>
+              </FinInstnId>
+            </CdtrAgt>
+          {{/if}}
           <Cdtr>
             <Nm>{{recipientName}}</Nm>
           </Cdtr>
