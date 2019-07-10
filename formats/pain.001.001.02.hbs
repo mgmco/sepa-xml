@@ -15,11 +15,13 @@
     <PmtInf>
       <PmtInfId>{{_payments.info.id}}</PmtInfId>
       <PmtMtd>{{_payments.info.method}}</PmtMtd>
+      {{#if _payments.info.serviceLevel}}
       <PmtTpInf>
         <SvcLvl>
-          <Cd>SEPA</Cd>
+          <Cd>{{_payments.info.serviceLevel}}</Cd>
         </SvcLvl>
       </PmtTpInf>
+      {{/if}}
       <ReqdExctnDt>{{formatDate _payments.info.when}}</ReqdExctnDt>
       <Dbtr>
         <Nm>{{_payments.info.senderName}}</Nm>

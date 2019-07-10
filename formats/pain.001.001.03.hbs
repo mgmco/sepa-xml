@@ -25,11 +25,13 @@
       <BtchBookg>{{_payments.info.batchBooking}}</BtchBookg>
       <NbOfTxs>{{_payments.info.transactionCount}}</NbOfTxs>
       <CtrlSum>{{_payments.info.transactionControlSum}}</CtrlSum>
+      {{#if _payments.info.serviceLevel}}
       <PmtTpInf>
         <SvcLvl>
-          <Cd>SEPA</Cd>
+          <Cd>{{_payments.info.serviceLevel}}</Cd>
         </SvcLvl>
       </PmtTpInf>
+      {{/if}}
       <ReqdExctnDt>{{formatDate _payments.info.when}}</ReqdExctnDt>
       <Dbtr>
         <Nm>{{_payments.info.senderName}}</Nm>
