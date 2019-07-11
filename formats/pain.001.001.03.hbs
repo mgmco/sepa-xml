@@ -54,7 +54,7 @@
             <EndToEndId>{{endToEndId}}</EndToEndId>
           </PmtId>
           <Amt>
-            <InstdAmt Ccy="EUR">{{amount}}</InstdAmt>
+            <InstdAmt Ccy="{{../_payments.info.currency}}">{{amount}}</InstdAmt>
           </Amt>
           {{#if bic}}
             <CdtrAgt>
