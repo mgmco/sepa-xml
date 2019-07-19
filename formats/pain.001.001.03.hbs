@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Document xmlns="{{_header.xmlNamespace}}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="{{_header.xmlSchemaLocation}}">
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03 pain.001.001.03.xsd">
   <CstmrCdtTrfInitn>
     <GrpHdr>
       <MsgId>{{_header.messageId}}</MsgId>
@@ -25,13 +25,11 @@
       <BtchBookg>{{_payments.info.batchBooking}}</BtchBookg>
       <NbOfTxs>{{_payments.info.transactionCount}}</NbOfTxs>
       <CtrlSum>{{_payments.info.transactionControlSum}}</CtrlSum>
-      {{#if _payments.info.serviceLevel}}
       <PmtTpInf>
         <SvcLvl>
-          <Cd>{{_payments.info.serviceLevel}}</Cd>
+          <Cd>SEPA</Cd>
         </SvcLvl>
       </PmtTpInf>
-      {{/if}}
       <ReqdExctnDt>{{formatDate _payments.info.when}}</ReqdExctnDt>
       <Dbtr>
         <Nm>{{_payments.info.senderName}}</Nm>
@@ -51,11 +49,10 @@
       {{#each _payments.transactions}}
         <CdtTrfTxInf>
           <PmtId>
-            <InstrId>{{endToEndId}}</InstrId>
             <EndToEndId>{{endToEndId}}</EndToEndId>
           </PmtId>
           <Amt>
-            <InstdAmt Ccy="{{../_payments.info.currency}}">{{amount}}</InstdAmt>
+            <InstdAmt Ccy="EUR">{{amount}}</InstdAmt>
           </Amt>
           {{#if bic}}
             <CdtrAgt>
