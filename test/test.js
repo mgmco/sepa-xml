@@ -35,7 +35,7 @@ describe('Works with the `pain.001.001.03` format', function() {
     name: 'generateiban',
     amount: .1
   });
-  
+
   sepaxml.addTransaction({
     id: 'TRANSAC1',
     iban: 'NL21ABNA0531621583', // fake IBAN from https://www.generateiban.com/test-iban/ thanks

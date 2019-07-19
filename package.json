@@ -4,8 +4,7 @@
   "description": "A simple XML generator for SEPA transactions.",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover _mocha",
-    "package:update": "npm outdated --depth=0 | grep -v Package | awk '{print $1}' | xargs -I% npm install %@latest --save"
+    "test": "istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
@@ -26,7 +25,7 @@
   "homepage": "https://github.com/mgmco/sepa-xml#readme",
   "dependencies": {
     "big.js": "^3.1.3",
-    "handlebars": "^4.0.5",
+    "handlebars": ">=4.0.14",
     "iban": "0.0.12"
   },
   "devDependencies": {
