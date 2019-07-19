@@ -26,7 +26,8 @@
   "homepage": "https://github.com/mgmco/sepa-xml#readme",
   "dependencies": {
     "big.js": "^3.1.3",
-    "handlebars": "^4.0.5"
+    "handlebars": "^4.0.5",
+    "iban": "0.0.12"
   },
   "devDependencies": {
     "chai": "^3.2.0",
