@@ -64,11 +64,16 @@
             <DtOfSgntr>{{mandateSignatureDate}}</DtOfSgntr>
             <AmdmntInd>false</AmdmntInd>
           </MndtRltdInf>
-        </DrctDbtTx>
-        {{#if bic}}
+        </DrctDbtTx>        
         <DbtrAgt>
             <FinInstnId>
+              {{#if bic}}
               <BIC>{{bic}}</BIC>
+              {{else}}
+              <Othr>
+                <Id>NOTPROVIDED</Id>
+              </Othr>
+              {{/if}}
             </FinInstnId>
         </DbtrAgt>
         {{/if}}
